@@ -1,0 +1,52 @@
+﻿@model BankMVC.Models.BankAccount
+
+@{
+    ViewBag.Title = "RemoveAccount";
+}
+
+<head>
+    <h2 class="mintitle">Remove Account</h2>
+    @Styles.Render("~/CSS/Form.css")
+</head>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<h3>Are you sure you want to delete this?</h3>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+       
+        <section class="glass">
+            <div class="dashboards">
+                <form>
+                    <div class="link">
+                        <p style="font-weight:bold;">Account Number: </p>
+                        <p class="input">
+                            @Html.DisplayFor(model => model.AccountNumber)
+                        </p>
+                    </div>
+
+                    <div class="link">
+                        <p style="font-weight:bold;">Account Balance: </p>
+                        <p class="input">
+                            @Html.DisplayFor(model => model.AccountBalance)
+                        </p>
+                    </div>
+
+                    <div class="link">
+                        <p style="font-weight:bold;">Account Type: </p>
+                        <p class="input">
+                            @Html.DisplayFor(model => model.AccountType)
+                        </p>
+                    </div>
+                    <div class="btn_group" style="text-align:center;">
+                        <button class="btn btn-default">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    }
+</body>

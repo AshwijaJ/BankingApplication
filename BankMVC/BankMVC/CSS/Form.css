@@ -1,0 +1,94 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mintitle {
+    font-size: 40px;
+    padding: 1rem;
+    color: #0A0708;
+    letter-spacing: 10px;
+    font-weight: bolder;
+    font-family: Brush Script MT;
+    text-shadow: 2px 2px #B1B1B1;
+}
+
+h2 {
+    font-size: 40px;
+    padding: 1rem;
+    color: #0A0708;
+    font-weight: bolder;
+    font-family: Brush Script MT;
+    text-shadow: 2px 2px #B1B1B1;
+}
+
+p {
+    color: #000000;
+    font-size: 20px;
+    padding: 1rem;
+    font-family: 'Times New Roman';
+}
+
+main {
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(to left, rgba(41,128,185, 0.7), rgba(44,62,80,0.3));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.glass {
+    background: white;
+    min-height: 60vh;
+    width: 40%;
+    background: linear-gradient(to left, rgba(41,128,185, 0.7), rgba(44,62,80,0.3));
+    border-radius: 2rem;
+    z-index: 2;
+    backdrop-filter: blur(2rem);
+    display: flex;
+}
+
+.dashboard {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    background: linear-gradient( to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3) );
+}
+
+.link {
+    display: flex;
+    margin: 1rem 0rem;
+    padding: 1rem 3rem;
+}
+
+    /*.link h2 {
+        padding: 0rem 2rem;
+    }*/
+
+.input {
+    color: #0A0708;
+    font-family: 'Times New Roman';
+    font-size: 20px;
+}
+
+.btn_group {
+    color: rgba(255,255,255,0.5);
+    background: transparent;
+    font-size: 32px;
+    text-transform: capitalize;
+    transition: all 0.3s ease 0s;
+}
+
+    .btn_group:hover {
+        color: #fff;
+        text-shadow: 3px 3px rgba(255,255,255,0.2);
+    }

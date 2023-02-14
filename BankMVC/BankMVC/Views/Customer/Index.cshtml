@@ -1,0 +1,40 @@
+﻿@model IEnumerable<BankMVC.Models.CustomerClass>
+@{
+    ViewBag.Title = "Index";
+}
+
+<head>
+    @Styles.Render("~/CSS/Index.css")
+</head>
+
+<body>    
+        <div class="hero2">
+        <fieldset class="hero2-text">
+            <h1>FedBank</h1>
+            <p>Now you can manage your customers financial tracks at one place!!</p>
+            @*<a href="#scroll2"><button>click me</button></a>*@
+            <a href="@Url.Action("GetCustomer", "Customer")" class="View"><button>View Customer</button></a>
+            @*<a href="@Url.Action("AddCustomer", "Customer")" class="View"><button>Add Customer</button></a>*@<br /><br />
+            @*<a href="@Url.Action("UpdateCustomer", "Customer")" class="View"><button>Edit Customer</button></a>*@
+            <a href="@Url.Action("GetAccounts", "Account")" class="View"><button>View Account</button></a><br /><br />
+        </fieldset>
+    </div>
+
+
+</body>
+
+
+@section scripts
+{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify
+                    .alert('FedBank',successMessage, function () {
+
+                    });
+            });
+
+    </script>
+}

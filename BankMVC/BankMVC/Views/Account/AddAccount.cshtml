@@ -1,0 +1,80 @@
+﻿@model BankMVC.Models.BankAccount
+
+@{
+    ViewBag.Title = "AddAccount";
+}
+
+<head>
+    <h2 class="mintitle">Add Account</h2>
+    @Styles.Render("~/CSS/EditForms.css")
+</head>
+
+<body>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="container">
+            <form>
+                <div class="form-horizontal">
+                    <h4>Bank Account</h4>
+                    <hr />
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CustomerId, "Customer ID", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="text" readonly @Html.EditorFor(model => model.CustomerId, new { htmlAttributes = new { @class = "form-control" } })
+                                   @*@Html.DisplayFor(model => model.CustomerId)*@
+                                   @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AccountBalance, "Account Balance", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.AccountBalance, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.AccountBalance, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AccountType, "Account Type", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @*@Html.DropDownList("AccountType", ViewBag.AccountList as SelectList, htmlAttributes: new { @class = "form-control" })*@
+                            @Html.EditorFor(model => model.AccountType, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.AccountType, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+
+                    @*<div class="form-group">
+            @Html.LabelFor(model => model.TransactionTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TransactionTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TransactionTime, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    }
+
+
+</body>
+
+
+<div>
+    @Html.ActionLink("Back to List", "GetAccounts")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

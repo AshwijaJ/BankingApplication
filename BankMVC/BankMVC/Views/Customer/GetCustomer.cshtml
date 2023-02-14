@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BankMVC.Models.BankCustomer>
+
+@{
+    ViewBag.Title = "GetCustomer";
+}
+<head>
+    @Styles.Render("~/CSS/ViewCustomer.css")
+    <p class="mintitle">Customer Details</p>
+</head>
+
+
+<div class="btn_group">
+    <button style="font-size:14px;"><a href="@Url.Action("AddCustomer", "Customer")">Add Customer</a></button>
+</div>
+<body>
+    @*@using (Html.BeginForm("GetCustomer", "Customer", FormMethod.Get))
+        {
+            <div class="col-sm-9 col-xs-12 text-right">
+                <div class="btn_group">
+                    <button class="btn btn-default" title="SortByAssetName">
+                        @Html.ActionLink("Asset Name", "EditAssets", new { SortOrder = ViewBag.AssetName })
+                    </button>
+                    <button class="btn btn-default" title="SortByAssetSku">
+                        @Html.ActionLink("Asset SKU", "EditAssets", new { SortOrder = ViewBag.AssetSku })
+                    </button>
+                    <button class="btn btn-default" title="Menu">
+                        @Html.ActionLink("Home", "Index")
+                    </button>
+                </div>
+            </div>
+
+        }*@
+    @foreach (var item in Model)
+    {
+        <div class="cards">
+            <div class="card card-1">
+                <th class="card__title">Customer Name: @Html.DisplayFor(modelItem => item.CustomerName)</th><br />
+                <th class="card__title">Customer Phone: @Html.DisplayFor(modelItem => item.CustomerPhone)</th><br />
+                <th class="card__title">Customer Address: @Html.DisplayFor(modelItem => item.CustomerAddress)</th><br />
+                <div class="btn_group">
+                    <button><a href="@Url.Action("UpdateCustomer", "Customer", new { id = item.CustomerId })">Edit</a></button>
+                    <button><a href="@Url.Action("RemoveCustomer", "Customer", new { id = item.CustomerId })">Delete</a></button>
+                    <button><a href="@Url.Action("AddAccount", "Account", new { id = item.CustomerId })">Add</a></button>
+                    <button><a href="@Url.Action("GetAllAccByCstId", "Account", new { id = item.CustomerId })">view all accounts</a></button>
+                     @*<button class="btn btn-default"><a href="@Url.Action("GetAssetList", "Asset")"><i class="fa-sharp fa-solid fa-eye"></i></a></button>*@
+                </div>
+            </div>
+        </div>
+
+    }
+</body>

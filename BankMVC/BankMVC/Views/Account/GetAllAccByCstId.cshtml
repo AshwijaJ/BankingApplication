@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BankMVC.Models.BankAccount>
+
+@{
+    ViewBag.Title = "GetAllAccByCstId";
+}
+
+<head>
+    @*<p class="mintitle">Customer Accounts Details</p>*@
+    @Styles.Render("~/CSS/Table.css")
+</head>
+
+   
+
+
+<body>
+   
+    @*<div class="btn_group" style="padding-left: 1010px;padding-bottom:300px;">
+        @Html.ActionLink("Add", "AddAccount", new { id = model.})
+        <button style="font-size:14px;"><a href="@Url.Action("AddAccount", "Account", new { id = BankMVC..CustomerId) })">Add Account</a></button>
+    </div>*@
+    
+        <div>
+            <table class="container">
+                <thead>
+                    <tr>
+                        <th>Account Balance</th>
+                        <th>Account Type</th>
+                        <th>Manipulation Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.AccountBalance)</td>
+                            <td>@Html.DisplayFor(modelItem => item.AccountType)</td>
+                            <td>
+                                @*@Html.ActionLink("Add", "AddAccount", new { id = item.CustomerId })|*@
+                                @Html.ActionLink("Edit", "UpdateAccount", new { id = item.AccountNumber })|
+                                @Html.ActionLink("Delete", "RemoveAccount", new { id = item.AccountNumber })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </body>
+
+@*<p>Customer Account Details</p>*@
+

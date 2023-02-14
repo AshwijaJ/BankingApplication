@@ -1,0 +1,62 @@
+﻿@model BankMVC.Models.BankCustomer
+
+@{
+    ViewBag.Title = "RemoveCustomer";
+}
+
+<head>
+    <h2 class="mintitle">Remove Customer</h2>
+    @Styles.Render("~/CSS/Form.css")
+</head>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<h3>Are you sure you want to delete this?</h3>
+<body>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+        <section class="glass">
+            <div class="dashboards">
+                <form>
+                    <div class="link">
+                        <p style="font-weight:bold;">Customer ID: </p>
+                        <p class="input">
+                            @Html.DisplayFor(model => model.CustomerId)
+                        </p>
+                    </div>
+
+                    <div class="link">
+                        <p  style="font-weight:bold;">Customer Name: </p>
+                        <p class="input">
+                            @Html.DisplayFor(model => model.CustomerName)
+                        </p>
+                    </div>
+
+                    <div class="link">
+                        <p style="font-weight:bold;">Customer Phone: </p>
+                        <p class="input">
+                            @Html.DisplayFor(model => model.CustomerPhone)
+                        </p>
+                    </div>
+
+                    <div class="link">
+                        <p style="font-weight:bold;">Customer Address: </p>
+                        <p class="input">
+                            @Html.DisplayFor(model => model.CustomerAddress)
+                        </p>
+                    </div>
+
+                    <div class="btn_group" style="text-align:center;">
+                        <button class="btn btn-default">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    }
+</body>

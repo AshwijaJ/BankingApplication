@@ -1,0 +1,35 @@
+﻿@model IEnumerable<BankMVC.Models.AccountDetails>
+
+@{
+    ViewBag.Title = "GetAccounts";
+}
+
+<head>
+    @Styles.Render("~/CSS/ViewCustomer.css")
+    <p class="mintitle">All Account Details</p>
+</head>
+
+<body>
+    @foreach (var item in Model)
+    {
+        <div class="cards">
+            <div class="card card-1">
+                <th class="card__title">Customer ID: @Html.DisplayFor(modelItem => item.CustomerId)</th><br />
+                <th class="card__title">Customer Name: @Html.DisplayFor(modelItem => item.CustomerName)</th><br />
+                <th class="card__title">Account Number: @Html.DisplayFor(modelItem => item.AccountNumber)</th><br />
+                <th class="card__title">Account Balance: @Html.DisplayFor(modelItem => item.AccountBalance)</th><br />
+                <th class="card__title">Account Type: @Html.DisplayFor(modelItem => item.AccountType)</th><br />
+
+                @*<div class="btn_group">
+                        <button><a href="@Url.Action("UpdateAccount", "Account", new { id = item.AccountNumber })">Edit</a></button>
+                        <button><a href="@Url.Action("RemoveAccount", "Account", new { id = item.AccountNumber })">Delete</a></button>
+                    </div>*@
+            </div>
+        </div>
+
+
+    }
+    <div>
+        @Html.ActionLink("Back to List", "GetCustomer", "Customer")
+    </div>
+</body>

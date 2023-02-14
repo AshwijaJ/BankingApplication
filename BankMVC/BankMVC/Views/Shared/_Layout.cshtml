@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .navbar-brand {
+            font-weight: 500;
+            color:black;
+        }
+    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*<title>@ViewBag.Title - My ASP.NET Application</title>*@
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+
+    <link href="~/Content/alertifyjs/alertify.min.css" rel="stylesheet" />
+    <link href="~/Content/alertifyjs/themes/default.min.css" rel="stylesheet" />
+    @*Font-Awesome Link*@
+    <script src="https://kit.fontawesome.com/eacbc103c6.js" crossorigin="anonymous"></script>
+    @*Alertify References*@
+
+    <link href="~/Content/alertifyjs/alertify.rtl.css" rel="stylesheet" />
+        <link href="~/Content/alertifyjs/themes/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #aad9f4; position: fixed;">
+        <div class="container">
+            <div class="navbar-header">
+
+                @Html.ActionLink("FedBank Net Banking", "Index", "Customer", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Personal", "Index", "Customer", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("NRI", "Index", "Customer", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("SME", "Index", "Customer", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Wholesale", "Index", "Customer", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Agri", "Index", "Customer", new { area = "" }, new { @class = "navbar-brand" })</li>
+                @*</ul>&nbsp;&nbsp;&nbsp;&nbsp;
+                <ul class="nav navbar-nav" style="align-content:">*@
+                    <li>@*<i class='fa-solid fa-map-location'>*@@Html.ActionLink("Locate Us", "Index", "Customer", new { area = "" }, new { @class = "navbar-brand" })@*</i>*@</li>
+                    <li>@Html.ActionLink("Help", "Index", "Customer", new { area = "" }, new { @class = "navbar-brand" })</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/alertify.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
