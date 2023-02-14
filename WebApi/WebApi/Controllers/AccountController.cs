@@ -11,7 +11,7 @@ namespace WebApi.Controllers
 {
     public class AccountController : ApiController
     {
-        // GET: Account
+        
         DataAccess Da = new DataAccess();
         List<BankAccount> ListAccount = new List<BankAccount>();
         IEnumerable<AccountDetails> AccDet;
