@@ -18,7 +18,6 @@ body {
     background-position: center;
     filter: grayscale(40%);
     overflow: hidden;
-    /*  background-image: linear-gradient(to left, rgba(41,128,185, 0.7), rgba(44,62,80,0.3)), SR("https://www.istockphoto.com/photo/dollar-sign-with-circuits-gm472230817-37213638?phrase=it%20ASSETS");*/
 }
 
 .border-text {
@@ -34,13 +33,13 @@ body {
 
 .hero2-text {
     z-index: 0;
-    @extend .hero-text;
+   /* @extend .hero-text;*/
     width: 45%;
     top: 35%;
     font-family: 'IBM Plex Serif', serif;
     letter-spacing: 1.8px;
     position: relative;
-    border: solid #469ef3 2px;
+    /*border: solid #469ef3 2px;*/
     padding-left: 40px;
     padding-right: 30px;
     color: #ffffff;
@@ -69,23 +68,22 @@ button {
     font-family: 'IBM Plex Serif', serif;
     letter-spacing: 2px;
     margin-left: 0;
-    /* bottom: -40px;*/
+     bottom: -40px;
     color: #fff;
     font-size: 18px;
 }
 
-    button:hover {
+/*button:hover {
         transform: translate(10px);
         box-shadow: 0px 2px 2px rgba(0, 0, 0, .25);
         color: #ffffff;
-        /* background-color: black;*/
+        background-color: black;
         border: solid #ffffff 3px;
-    }
-
-}
+    }*/
 
 
-@media only screen and (max-width: 600px) {
+
+/*@media only screen and (max-width: 600px) {
 
     .hero2-text {
         top: 10px;
@@ -102,4 +100,4 @@ p {
 
 button {
     font-size: 16px;
-}
+}*/
