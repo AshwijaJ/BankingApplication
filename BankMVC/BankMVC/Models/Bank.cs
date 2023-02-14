@@ -27,6 +27,7 @@ namespace BankMVC.Models
     {
         [Key]
         public int AccountNumber { get; set; }
+
         [Required(ErrorMessage = "Enter correct account balance")]
         [Range(1, 100000)]
         public long AccountBalance { get; set; }

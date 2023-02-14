@@ -38,14 +38,11 @@ namespace BankMVC.Controllers
         public ActionResult AddAccount(int id)
         {
             //create an empty object
-            BankAccount ast = new BankAccount();
-            ast.CustomerId = id;
-            //List<string> AccTypeList = new List<string> { "Savings", "Current", "Salaried" };
+            //List<string> AccTypeList = new List<string> { "Savings", "Current", "Salary" };
             //var AccListType = new SelectList(AccTypeList);
             //ViewBag.AccountList = AccTypeList;
-
-
-
+            BankAccount ast = new BankAccount();
+            ast.CustomerId = id;
             //sending the object to the view
             return View(ast);
         }

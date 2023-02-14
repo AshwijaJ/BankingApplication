@@ -7,6 +7,17 @@
 <head>
     <h2 class="mintitle">Edit Customer</h2>
     @Styles.Render("~/CSS/EditForms.css")
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
 </head>
 
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -38,7 +49,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.CustomerPhone, "Customer Phone", htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.CustomerPhone, new { htmlAttributes = new { @class = "form-control" } })
+                                <input type="number" @Html.EditorFor(model => model.CustomerPhone, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.CustomerPhone, "", new { @class = "text-danger" })
                             </div>
                         </div>

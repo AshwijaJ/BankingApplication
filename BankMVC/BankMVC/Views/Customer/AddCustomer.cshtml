@@ -8,11 +8,23 @@
 <head>
     <h2 class="mintitle">Add Customer</h2>
     @Styles.Render("~/CSS/EditForms.css")
+    <style>
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
 </head>
 
 
 <body>
-    @using (Html.BeginForm(new { autocomplete = "off" }))
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
@@ -27,7 +39,7 @@
                         @*<p>Customer Name</p>*@
                         @Html.LabelFor(model => model.CustomerName, "Customer Name", htmlAttributes: new { @class = "control-label col-md-2"})
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control"}})
+                            <input type="number" @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control", @autocomplete = "new_customername" } })
                             @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -35,7 +47,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.CustomerPhone, "Customer Phone", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.CustomerPhone, new { htmlAttributes = new { @class = "form-control" }})
+                            @Html.EditorFor(model => model.CustomerPhone, new { htmlAttributes = new { @class = "form-control", @autocomplete = "new_customername" } })
                             @Html.ValidationMessageFor(model => model.CustomerPhone, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -43,7 +55,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.CustomerAddress, "Customer Address", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.CustomerAddress, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.CustomerAddress, new { htmlAttributes = new { @class = "form-control", @autocomplete = "new_customername" } })
                             @Html.ValidationMessageFor(model => model.CustomerAddress, "", new { @class = "text-danger" })
                         </div>
                     </div>
