@@ -112,6 +112,34 @@ namespace BankMVC.Controllers
             ac.RemoveActs(id);
             return RedirectToAction("GetAccounts");
         }
+
+        [HttpGet]
+        //actionresult basically a return type 
+        public ActionResult WithdrawlGetAllAccByCstId(int id)
+        {
+            //list which is initialised to store the data 
+            BankAccount AccountList = new BankAccount();
+            AccountList = ac.AccountUpdate(id);
+            //all the data is viewed in the View using the cshtml and css file 
+            return View(AccountList);
+        }
+
+        [HttpPost]
+        public ActionResult WithdrawlGetAllAccByCstId(BankAccount amt)
+        {
+            //checks if the data entered is valid or not 
+            if (ModelState.IsValid)
+            {
+                ac.AmountWithdraw(amt);
+                return RedirectToAction("GetAccounts");
+            }
+            else
+            {
+                return View();
+            }
+
+        }
+
     }
 
 }

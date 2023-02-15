@@ -65,8 +65,6 @@ namespace BankMVC.Models
                     var readTask = response.Content.ReadAsAsync<List<BankAccount>>();
                     readTask.Wait();
                     AccountList = readTask.Result;
-
-
                 }
 
             }
@@ -194,6 +192,28 @@ namespace BankMVC.Models
                 HttpResponseMessage response = responseTask.Result;
 
             }
+
         }
+
+        public void AmountWithdraw(BankAccount ev)
+        {
+
+            using (var client = new HttpClient())
+            {
+
+                client.BaseAddress = new Uri("http://localhost:8044/api/");
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.AcceptLanguage.Add(new StringWithQualityHeaderValue("nl-NL"));
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //Send a PUT request to the specified Uri containing the value serialized as JSON in the request body.
+                var responseTask = client.PutAsJsonAsync(String.Format("Account/Withdrawal/"), ev);
+                responseTask.Wait();
+
+                HttpResponseMessage response = responseTask.Result;
+            }
+
+        }
+
     }
 }

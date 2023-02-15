@@ -191,6 +191,7 @@
     <Content Include="Views\Account\AddAccount.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Account\GetAllAccByCstId.cshtml" />
+    <Content Include="Views\Account\WithdrawlGetAllAccByCstId.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

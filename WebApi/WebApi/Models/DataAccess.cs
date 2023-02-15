@@ -201,6 +201,28 @@ namespace WebApi.Models
             return retValue;
         }
 
+        public int AmmountWithdrawal(BankAccount WithdrawalAccount)
+        {
+            int retValue = 0;
+            try
+            {
+                using (var ctx = new BankDbContext())
+                {
+                    
+                    BankAccount AccountBank = ctx.Account.Where(s => s.AccountNumber == WithdrawalAccount.AccountNumber).SingleOrDefault();
+                    AccountBank.AccountBalance -= WithdrawalAccount.WithdrawAmount;
+                    ctx.Entry(AccountBank).State = System.Data.Entity.EntityState.Modified;
+                    retValue = ctx.SaveChanges();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retValue;
+        }
+
         public int RemoveCustomer(int s1)
         {
             int retValue = 0;

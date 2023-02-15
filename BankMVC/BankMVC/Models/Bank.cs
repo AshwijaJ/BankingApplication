@@ -34,11 +34,13 @@ namespace BankMVC.Models
       
         public string AccountType { get; set; }
         //public DateTime TransactionTime { get; set; }
+        public long WithdrawAmount { get; set; }
 
         [ForeignKey("Cust")]
         public int CustomerId { get; set; }
 
         public BankCustomer Cust { get; set; }
+        
 
     }
     public class AccountDetails
