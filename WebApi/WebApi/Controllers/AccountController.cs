@@ -14,6 +14,7 @@ namespace WebApi.Controllers
         
         DataAccess Da = new DataAccess();
         List<BankAccount> ListAccount = new List<BankAccount>();
+
         IEnumerable<AccountDetails> AccDet;
         [System.Web.Http.HttpGet]
         public IHttpActionResult GetAllAccounts()
@@ -73,9 +74,15 @@ namespace WebApi.Controllers
             return Ok(retValue);
         }
 
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
+       
+        [System.Web.Http.HttpPut]
+        public IHttpActionResult Withdrawal(BankAccount AccountsWith)
+        {
+            long retValue = 0;
+            retValue = Da.AmmountWithdrawal(AccountsWith);
+            return Ok(retValue);
+        }
+
+
     }
 }
