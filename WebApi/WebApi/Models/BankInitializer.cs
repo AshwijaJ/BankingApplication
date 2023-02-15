@@ -6,7 +6,7 @@ using System.Data.Entity;
 
 namespace WebApi.Models
 {
-    public class BankInitializer : DropCreateDatabaseIfModelChanges<BankDbContext>
+    public class BankInitializer : CreateDatabaseIfNotExists<BankDbContext>
     {
         protected override void Seed(BankDbContext context)
         {
