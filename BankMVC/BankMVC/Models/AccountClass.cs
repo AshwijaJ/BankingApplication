@@ -215,5 +215,29 @@ namespace BankMVC.Models
 
         }
 
+        //public void ATMpinDel(int id)
+        //{
+        //    //list is initialise 
+
+
+        //    using (var client = new HttpClient())
+        //    {
+
+        //        client.BaseAddress = new Uri("http://localhost:8044/api/");
+        //        client.DefaultRequestHeaders.Clear();
+        //        client.DefaultRequestHeaders.AcceptLanguage.Add(new StringWithQualityHeaderValue("nl-NL"));
+        //        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+        //        //Send a DELETE request to the specified Uri as an asynchronous operation.
+        //        var responseTask = client.PostAsAsync(String.Format("Account/ATMpin/?pin=" + id));
+        //        responseTask.Wait();
+
+        //        HttpResponseMessage response = responseTask.Result;
+
+        //    }
+
+        //}
+
+
     }
 }

@@ -14,8 +14,9 @@ namespace WebApi.Controllers
         
         DataAccess Da = new DataAccess();
         List<BankAccount> ListAccount = new List<BankAccount>();
-
         IEnumerable<AccountDetails> AccDet;
+        
+
         [System.Web.Http.HttpGet]
         public IHttpActionResult GetAllAccounts()
         {
@@ -82,6 +83,16 @@ namespace WebApi.Controllers
             retValue = Da.AmmountWithdrawal(AccountsWith);
             return Ok(retValue);
         }
+
+        [System.Web.Http.HttpPost]
+        public IHttpActionResult ATMpin(BankAccount acc)
+        {
+            int returnValue = 0;
+            returnValue = Da.pinATM(acc.AccountNumber,acc.ATMpin);
+            return Ok(returnValue);
+        }
+
+
 
 
     }

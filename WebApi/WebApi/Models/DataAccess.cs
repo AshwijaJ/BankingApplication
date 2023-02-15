@@ -10,6 +10,7 @@ namespace WebApi.Models
 
         List<BankCustomer> CustomerList = new List<BankCustomer>();
         List<BankAccount> AccountList = new List<BankAccount>();
+        
         public List<BankCustomer> GetCustomer()
         {
 
@@ -287,6 +288,41 @@ namespace WebApi.Models
             }
 
             return Accountlist;
+        }
+
+        public int pinATM(int acc, int id)
+        {
+            BankAccount AccBank = new BankAccount();
+            int ReturnValue = 0;
+            try
+            {
+                using (var ctx = new BankDbContext())
+                {
+                    AccBank = ctx.Account.Where(s => s.AccountNumber == acc && s.ATMpin == id).SingleOrDefault();
+                    //ctx.Entry(AccBank).State = System.Data.Entity.EntityState.Unchanged;
+                    //ctx.Account.Where(s => s.ATMpin == id).Single();
+                    //ReturnValue = ctx.SaveChanges();
+                    if (AccBank !=null)
+                    {
+                        
+                        ReturnValue = 1;
+                    }
+                    else
+                    {
+                        ReturnValue = 0;
+                    }
+
+                    //eventslist = ctx.Events.ToList();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ExceptionLogging.SendErrorToText(ex);
+                //throw ex;
+            }
+
+            return ReturnValue;
         }
     }
 }

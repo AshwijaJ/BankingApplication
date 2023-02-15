@@ -192,6 +192,7 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Account\GetAllAccByCstId.cshtml" />
     <Content Include="Views\Account\WithdrawlGetAllAccByCstId.cshtml" />
+    <Content Include="Views\Account\GetATMpin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

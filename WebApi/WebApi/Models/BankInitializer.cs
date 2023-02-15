@@ -21,9 +21,9 @@ namespace WebApi.Models
             context.SaveChanges();
 
             var Accounts = new List<BankAccount> {
-                new BankAccount{CustomerId=1,AccountBalance=100000,AccountType="Savings",WithdrawAmount=0}, 
-                new BankAccount{CustomerId=2,AccountBalance=2000000,AccountType="Savings",WithdrawAmount=0},
-                 new BankAccount{CustomerId=3,AccountBalance=100000000,AccountType="Savings",WithdrawAmount=0}
+                new BankAccount{CustomerId=1,AccountBalance=100000,AccountType="Savings",ATMpin=1234}, 
+                new BankAccount{CustomerId=2,AccountBalance=2000000,AccountType="Savings",ATMpin=2345},
+                 new BankAccount{CustomerId=3,AccountBalance=100000000,AccountType="Savings",ATMpin=3456}
 
             };
             Accounts.ForEach(h => context.Account.Add(h));

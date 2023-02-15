@@ -36,6 +36,8 @@ namespace BankMVC.Models
         //public DateTime TransactionTime { get; set; }
         public long WithdrawAmount { get; set; }
 
+        public int ATMpin { get; set; }
+
         [ForeignKey("Cust")]
         public int CustomerId { get; set; }
 
@@ -51,6 +53,20 @@ namespace BankMVC.Models
         public long AccountBalance { get; set; }
         public string AccountType { get; set; }
 
+    }
+
+    public class Transfer
+    {
+        [Key]
+        public int TransactionId { get; set; }
+        public int ToAccountNumber { get; set; }
+        public DateTime TransactionTime { get; set; }
+
+        public long amount { get; set; }
+
+        [ForeignKey("Acc")]
+        public int AccountNumber { get; set; }
+        public BankAccount Acc { get; set; }
     }
 
 }

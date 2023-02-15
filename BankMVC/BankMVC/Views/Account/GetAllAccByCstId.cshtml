@@ -37,7 +37,8 @@
                             <td>
                                 @*@Html.ActionLink("Add", "AddAccount", new { id = item.CustomerId })|*@
                                 @Html.ActionLink("Edit", "UpdateAccount", new { id = item.AccountNumber })|
-                                @Html.ActionLink("Delete", "RemoveAccount", new { id = item.AccountNumber })
+                                @Html.ActionLink("Delete", "RemoveAccount", new { id = item.AccountNumber })|
+                                @Html.ActionLink("Withdraw", "WithdrawlGetAllAccByCstId", new { id = item.AccountNumber })
                             </td>
                         </tr>
                     }

@@ -140,6 +140,20 @@ namespace BankMVC.Controllers
 
         }
 
+        [HttpGet]
+        public ActionResult GetATMpin(int pid)
+        {
+            BankAccount AccUpdate = new BankAccount();
+            AccUpdate = ac.AccountUpdate(pid);
+            return View(AccUpdate);
+        }
+
+        //[HttpPost]
+        //public ActionResult GetATMpin(int pin)
+        //{
+
+        //}
+
     }
 
 }
