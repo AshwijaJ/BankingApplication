@@ -288,5 +288,35 @@ namespace WebApi.Models
 
             return Accountlist;
         }
+
+        public int TranferAmount(Transfer t1)
+        {
+            BankAccount ba1 = new BankAccount();
+            BankAccount ba2 = new BankAccount();
+            int retValue;
+            try
+            {
+                using (var ctx = new BankDbContext())
+                {
+                    ba1 = ctx.Account.Where(s => s.AccountNumber == t1.AccountNumber).FirstOrDefault();
+                    ba1.AccountBalance -= t1.amount;
+                    ctx.Entry(ba1).State = System.Data.Entity.EntityState.Modified;
+
+                    ba2 = ctx.Account.Where(s => s.AccountNumber == t1.ToAccountNumber).FirstOrDefault();
+                    ba2.AccountBalance += t1.amount;
+                    ctx.Entry(ba2).State = System.Data.Entity.EntityState.Modified;
+
+                    retValue = ctx.SaveChanges();
+                    //eventslist = ctx.Events.ToList();
+                }
+                return retValue;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

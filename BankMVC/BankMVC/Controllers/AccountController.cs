@@ -140,6 +140,17 @@ namespace BankMVC.Controllers
 
         }
 
+        //[HttpGet]
+        ////actionresult basically a return type 
+        //public ActionResult TransferAmt()
+        //{
+        //    //list which is initialised to store the data 
+        //    Transfer t = new Transfer();
+        //    AccountList = ac.AccountUpdate(id);
+        //    //all the data is viewed in the View using the cshtml and css file 
+        //    return View(AccountList);
+        //}
+
     }
 
 }

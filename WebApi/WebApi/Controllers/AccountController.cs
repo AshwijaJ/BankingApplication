@@ -83,6 +83,12 @@ namespace WebApi.Controllers
             return Ok(retValue);
         }
 
-
+        [System.Web.Http.HttpPut]
+        public IHttpActionResult TransferAmt(Transfer t1)
+        {
+            int retValue = 0;
+            retValue = Da.TranferAmount(t1);
+            return Ok(retValue);
+        }
     }
 }
