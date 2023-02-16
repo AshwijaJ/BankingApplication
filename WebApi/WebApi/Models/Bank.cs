@@ -33,7 +33,11 @@ namespace WebApi.Models
         
         public string AccountType { get; set; }
         //public DateTime TransactionTime { get; set; }
+
+        [Range(minimum: 1, maximum: 10000)]
         public long WithdrawAmount { get; set; }
+        [RegularExpression(@"^(\d{4})$", ErrorMessage = "Pin should be of 4 digits")]
+        public int ATMpin { get; set; }
 
         [ForeignKey("Cust")]
         public int CustomerId { get; set; } 
@@ -57,8 +61,8 @@ namespace WebApi.Models
         [Key]
         public int TransactionId { get; set; }
         public int ToAccountNumber { get; set; }
-       
-        public int ATMpin { get; set; }
+
+        
         public DateTime TransactionTime { get; set; }
         
         public long amount { get; set; }

@@ -1,0 +1,96 @@
+-----------Exception Details on  2/15/2023 3:35:52 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 2/15/2023 3:35:52 PM
+
+Error Line No : ine 112
+
+Error Message: NotSupportedException
+
+Exception Type: System.NotSupportedException
+
+Error Location : Model compatibility cannot be checked because the database does not contain model metadata. Model compatibility can only be checked for databases created using Code First or Code First Migrations.
+
+ Error Page Url: https://localhost:44361/api/customer/updatecustomer?aid=1
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  2/15/2023 3:36:16 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 2/15/2023 3:36:16 PM
+
+Error Line No : ine 112
+
+Error Message: NotSupportedException
+
+Exception Type: System.NotSupportedException
+
+Error Location : Model compatibility cannot be checked because the database does not contain model metadata. Model compatibility can only be checked for databases created using Code First or Code First Migrations.
+
+ Error Page Url: https://localhost:44361/api/customer/updatecustomer?aid=2
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  2/15/2023 3:37:20 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 2/15/2023 3:37:20 PM
+
+Error Line No : ine 156
+
+Error Message: NotSupportedException
+
+Exception Type: System.NotSupportedException
+
+Error Location : Model compatibility cannot be checked because the database does not contain model metadata. Model compatibility can only be checked for databases created using Code First or Code First Migrations.
+
+ Error Page Url: https://localhost:44361/api/customer/updatecustomer?aid=2
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  2/15/2023 3:38:22 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 2/15/2023 3:38:22 PM
+
+Error Line No : ine 112
+
+Error Message: NotSupportedException
+
+Exception Type: System.NotSupportedException
+
+Error Location : Model compatibility cannot be checked because the database does not contain model metadata. Model compatibility can only be checked for databases created using Code First or Code First Migrations.
+
+ Error Page Url: https://localhost:44361/api/customer/updatecustomer?aid=1
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+

@@ -215,5 +215,35 @@ namespace BankMVC.Models
 
         }
 
+        public int ATMpindel(BankAccount ev)
+        {
+            int ReturnValue = 0;
+            using (var client = new HttpClient())
+            {
+
+                client.BaseAddress = new Uri("http://localhost:8044/api/");
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.AcceptLanguage.Add(new StringWithQualityHeaderValue("nl-NL"));
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //Send a PUT request to the specified Uri containing the value serialized as JSON in the request body.
+                var responseTask = client.PutAsJsonAsync(String.Format("Account/ATMpin/"), ev);
+                responseTask.Wait();
+
+                HttpResponseMessage response = responseTask.Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    // Get back student object
+                    var readTask = response.Content.ReadAsAsync<int>();
+                    readTask.Wait();
+                    ReturnValue = readTask.Result;
+                }
+            }
+            return ReturnValue;
+        }
+
+
+
+
     }
 }
