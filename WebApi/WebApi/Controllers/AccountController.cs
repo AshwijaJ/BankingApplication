@@ -84,7 +84,7 @@ namespace WebApi.Controllers
             return Ok(retValue);
         }
 
-        [System.Web.Http.HttpPost]
+        [System.Web.Http.HttpPut]
         public IHttpActionResult ATMpin(BankAccount acc)
         {
             int returnValue = 0;

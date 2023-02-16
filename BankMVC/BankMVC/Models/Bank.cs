@@ -34,8 +34,9 @@ namespace BankMVC.Models
       
         public string AccountType { get; set; }
         //public DateTime TransactionTime { get; set; }
+        [Range(minimum:1,maximum:10000)]
         public long WithdrawAmount { get; set; }
-
+        [RegularExpression(@"^(\d{4})$", ErrorMessage = "Pin should be of 4 digits")]
         public int ATMpin { get; set; }
 
         [ForeignKey("Cust")]
