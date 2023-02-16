@@ -17,6 +17,5 @@ namespace WebApi.Models
         public DbSet<BankCustomer> Customer { get; set; }
         public DbSet<BankAccount> Account { get; set; }
 
-        public DbSet<Transfer> DetailTransfer { get; set; }
     }
 }

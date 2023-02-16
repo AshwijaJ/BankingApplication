@@ -15,7 +15,7 @@ namespace WebApi.Controllers
         DataAccess Da = new DataAccess();
 
         List<BankCustomer> ListCustomer = new List<BankCustomer>();
-
+       
 
         [System.Web.Http.HttpGet]
         public IHttpActionResult GetAllCustomer()
@@ -42,11 +42,11 @@ namespace WebApi.Controllers
         }
 
         [System.Web.Http.HttpPut]
-
+        
         public IHttpActionResult UpdateCustomer(BankCustomer s1)
         {
             int result = 0;
-
+            
             result = Da.CustomerUpdate(s1);
 
             return Ok(result);
@@ -80,7 +80,6 @@ namespace WebApi.Controllers
             return Ok(retValue);
         }
 
-        
 
 
     }

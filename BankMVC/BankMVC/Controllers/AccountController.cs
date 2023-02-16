@@ -139,46 +139,6 @@ namespace BankMVC.Controllers
             }
 
         }
-
-        [HttpGet]
-        public ActionResult GetATMpin(int id)
-        {
-            BankAccount AccUpdate = new BankAccount();
-            AccUpdate = ac.AccountUpdate(id);
-            AccUpdate.ATMpin = 0;
-            return View(AccUpdate);
-        }
-
-        [HttpPost]
-        public ActionResult GetATMpin(BankAccount AccBank)
-        {
-            int retvalue = 0;
-            retvalue = ac.ATMpindel(AccBank);
-            if(retvalue==1)
-            {
-
-            return RedirectToAction("WithdrawlGetAllAccByCstId", "Account", new { @id = AccBank.AccountNumber });
-            }
-            else
-            {
-                TempData["ErrorMessage"] = "Incorrect pin";
-                return RedirectToAction("GetATMpin");
-                //alertify.error("Entered Wrong pin");
-                //return RedirectToAction("GetATMpin", "Account", new AlertifyMessageModel { Message = "Lorem ipsum" });
-            }
-        }
-
-        //[HttpGet]
-        ////actionresult basically a return type 
-        //public ActionResult TransferAmt()
-        //{
-        //    //list which is initialised to store the data 
-        //    Transfer t = new Transfer();
-        //    AccountList = ac.AccountUpdate(id);
-        //    //all the data is viewed in the View using the cshtml and css file 
-        //    return View(AccountList);
-        //}
-
     }
 
 }
