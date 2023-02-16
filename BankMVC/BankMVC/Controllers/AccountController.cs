@@ -76,8 +76,6 @@ namespace BankMVC.Controllers
             return View(AccUpdate);
         }
 
-
-
         [HttpPost]
         //specifies the event to take place after the getting of the data 
         public ActionResult UpdateAccount(BankAccount ev)

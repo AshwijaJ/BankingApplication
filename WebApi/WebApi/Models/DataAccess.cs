@@ -188,6 +188,8 @@ namespace WebApi.Models
                         AccountBank.AccountNumber = s1.AccountNumber;
                         AccountBank.AccountBalance = s1.AccountBalance;
                         AccountBank.AccountType = s1.AccountType;
+                        AccountBank.ATMpin = s1.ATMpin;
+                        AccountBank.WithdrawAmount = s1.WithdrawAmount;
                         //AccountBank.TransactionTime = s1.TransactionTime;
                         ctx.Entry(AccountBank).State = System.Data.Entity.EntityState.Modified;
 
