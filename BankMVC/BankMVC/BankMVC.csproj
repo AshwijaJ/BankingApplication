@@ -227,6 +227,7 @@
     <Content Include="Views\Account\GetATMpin.cshtml" />
     <Content Include="Views\Sweet\Alert.cshtml" />
     <Content Include="Views\Account\WithdrawlGetAllAccByCstId.cshtml" />
+    <Content Include="Views\Account\TransferAmount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

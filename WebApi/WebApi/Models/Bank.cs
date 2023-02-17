@@ -27,8 +27,9 @@ namespace WebApi.Models
     {
         [Key]
         public int AccountNumber { get; set; }
+
         [Required(ErrorMessage = "Enter correct account balance")]
-        [Range(1, 100000)]
+        //[Range(1, 100000)]
         public long AccountBalance { get; set; }
         
         public string AccountType { get; set; }
@@ -60,9 +61,6 @@ namespace WebApi.Models
         public int TransactionId { get; set; }
         public int ToAccountNumber { get; set; }
 
-        
-        public DateTime TransactionTime { get; set; }
-        
         public long amount { get; set; }
 
         [ForeignKey("Acc")]

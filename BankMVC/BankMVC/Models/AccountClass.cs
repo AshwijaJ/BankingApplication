@@ -242,8 +242,25 @@ namespace BankMVC.Models
             return ReturnValue;
         }
 
+        public void Transaction(Transfer AmtTrans)
+        {
 
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:8044/api/");
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.AcceptLanguage.Add(new StringWithQualityHeaderValue("nl-NL"));
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
+                //helps in returning the task that will yield an object of that type 
+                var responseTask = client.PostAsJsonAsync(String.Format("Account/TransferAmount"), AmtTrans);
+                //reponse is waited to be got 
+                responseTask.Wait();
+                //returning a message/data from your action
+                HttpResponseMessage response = responseTask.Result;
+
+            }
+        }
 
     }
 }

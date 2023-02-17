@@ -92,5 +92,12 @@ namespace WebApi.Controllers
             return Ok(returnValue);
         }
 
+        [System.Web.Http.HttpPost]
+        public IHttpActionResult TransferAmount(Transfer AccTransfer)
+        {
+            int returnValue = 0;
+            returnValue = Da.AmountTransfer(AccTransfer);
+            return Ok(returnValue);
+        }
     }
 }

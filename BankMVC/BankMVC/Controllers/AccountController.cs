@@ -166,6 +166,19 @@ namespace BankMVC.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult TransferAmount()
+        {
+            Transfer ast = new Transfer();
+            return View(ast);
+        }
+        [HttpPost]
+        public ActionResult TransferAmount(Transfer AmountTransfer)
+        {
+            ac.Transaction(AmountTransfer);
+            return RedirectToAction("GetAccounts");
+        }
+
     }
 
 }

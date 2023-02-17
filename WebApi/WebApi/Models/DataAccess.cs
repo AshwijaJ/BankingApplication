@@ -326,5 +326,34 @@ namespace WebApi.Models
 
             return ReturnValue;
         }
+        public int AmountTransfer(Transfer AccTransfer)
+        {
+            BankAccount Acc1 = new BankAccount();
+            BankAccount Acc2 = new BankAccount();
+
+            int retValue = 0;
+            try
+            {
+                using (var ctx = new BankDbContext())
+                {
+
+                    Acc1 = ctx.Account.Find(AccTransfer.AccountNumber);
+                    Acc1.AccountBalance -= AccTransfer.amount;
+                    ctx.Entry(Acc1).State = System.Data.Entity.EntityState.Modified;
+
+                    Acc2 = ctx.Account.Find(AccTransfer.ToAccountNumber);
+                    Acc2.AccountBalance += AccTransfer.amount;
+                    ctx.Entry(Acc2).State = System.Data.Entity.EntityState.Modified;
+
+                    retValue = ctx.SaveChanges();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retValue;
+        }
     }
 }
