@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Vereyon.Web;
 
 namespace BankMVC.Controllers
 {
@@ -154,12 +155,12 @@ namespace BankMVC.Controllers
             retvalue = ac.ATMpindel(AccBank);
             if(retvalue==1)
             {
-
             return RedirectToAction("WithdrawlGetAllAccByCstId", "Account", new { @id = AccBank.AccountNumber });
             }
             else
             {
                 TempData["ErrorMessage"] = "Incorrect pin";
+                //FlashMessage.Equals("You have entered incorrect pin");
                 return RedirectToAction("GetATMpin");
                 //alertify.error("Entered Wrong pin");
                 //return RedirectToAction("GetATMpin", "Account", new AlertifyMessageModel { Message = "Lorem ipsum" });

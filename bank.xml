@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Bank>
+  <Customer CustomerId="1" CustomerName="Srinidhi" CustomerPhone="9087452617" CustomerAddress="Bagaluru, Bengaluru" />
+  <Customer CustomerId="2" CustomerName="Nilesh" CustomerPhone="8765432156" CustomerAddress="Nagasandra, Bengaluru" />
+  <Customer CustomerId="3" CustomerName="Kavya" CustomerPhone="8765434567" CustomerAddress="Thane, Mumbai" />
+  <Customer CustomerId="4" CustomerName="Prajnya" CustomerPhone="9898989898" CustomerAddress="Hebbala" />
+</Bank>

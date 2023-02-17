@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Xml.Linq;
 
 namespace WebApi.Models
 {
@@ -354,6 +355,42 @@ namespace WebApi.Models
                 throw ex;
             }
             return retValue;
+        }
+
+        public bool CreateXml(List<BankCustomer> CustDetails)
+        {
+            try
+            {
+                using (var ctx = new BankDbContext())
+                {
+
+                    XDocument XmlDoc = new XDocument(
+                         new XElement("Bank", from customer in CustDetails
+                                                          select new XElement("Customer", 
+                                                          new XAttribute("CustomerId", customer.CustomerId), 
+                                                          new XAttribute("CustomerName", customer.CustomerName), 
+                                                          new XAttribute("CustomerPhone", customer.CustomerPhone), 
+                                                          new XAttribute("CustomerAddress", customer.CustomerAddress)
+                                                            //from account in AccDetails
+                                                            //select new XElement("Account",
+                                                            // new XAttribute("AccountNumber", account.AccountNumber),
+                                                            //new XAttribute("AccountBalance", account.AccountBalance),
+                                                            //new XAttribute("AccountType", account.AccountType),
+                                                            //new XAttribute("WithdrawAmount", account.WithdrawAmount),
+                                                            // new XAttribute("ATMpin", account.ATMpin)
+
+
+                          )));
+                    Console.WriteLine(XmlDoc);
+                    XmlDoc.Save(@"D:\NewRepo\bank.xml");
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return true;
         }
     }
 }

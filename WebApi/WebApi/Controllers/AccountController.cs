@@ -99,5 +99,13 @@ namespace WebApi.Controllers
             returnValue = Da.AmountTransfer(AccTransfer);
             return Ok(returnValue);
         }
+
+        [System.Web.Http.HttpPost]
+        public IHttpActionResult XmlCreation(List<BankCustomer> BankDetails)
+        {
+            bool retvalue = false;
+            retvalue = Da.CreateXml(BankDetails);
+            return Ok(retvalue);
+        }
     }
 }
