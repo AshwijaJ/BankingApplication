@@ -244,7 +244,6 @@ namespace BankMVC.Models
 
         public void Transaction(Transfer AmtTrans)
         {
-
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:8044/api/");
