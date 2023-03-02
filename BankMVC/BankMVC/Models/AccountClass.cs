@@ -15,7 +15,6 @@ namespace BankMVC.Models
         {
             List<AccountDetails> AccountList = new List<AccountDetails>();
 
-
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:8044/api/");
