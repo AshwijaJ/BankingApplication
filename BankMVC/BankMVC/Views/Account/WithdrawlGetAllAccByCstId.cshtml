@@ -3,62 +3,67 @@
 @{
     ViewBag.Title = "WithdrawlGetAllAccByCstId";
 }
+<head>
+    <h2 class="mintitle">Amount Withdrawal</h2>
+    @Styles.Render("~/CSS/EditForms.css")
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
 
-<h2>Amount Withdrawal</h2>
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    @Html.HiddenFor(model => model.AccountType)
-    @Html.HiddenFor(model => model.CustomerId)
-    
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>BankAccount</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.AccountNumber)
+        <div class="container">
+            <form>
+                <div class="form-horizontal">
+                    <h4 style="font-weight:bold;">Enter the amount to be withdrawn below:</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.AccountNumber)
+                    @Html.HiddenFor(model => model.AccountType)
+                    @Html.HiddenFor(model => model.ATMpin)
+                    @Html.HiddenFor(model => model.CustomerId)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.AccountBalance, "Account Balance", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="number" readonly @Html.EditorFor(model => model.AccountBalance, new { htmlAttributes = new { @class = "form-control" } })
-                       @Html.ValidationMessageFor(model => model.AccountBalance, "", new { @class = "text-danger" })
-            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AccountBalance, "Account Balance", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="number" readonly @Html.EditorFor(model => model.AccountBalance, new { htmlAttributes = new { @class = "form-control" } })
+                                   @Html.ValidationMessageFor(model => model.AccountBalance, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.WithdrawAmount, "Withdraw amount", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="number" @Html.EditorFor(model => model.WithdrawAmount, new { htmlAttributes = new { @class = "form-control" } })
+                                   @Html.ValidationMessageFor(model => model.WithdrawAmount, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Withdraw" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
+        @*<div>
+                @Html.ActionLink("Back to List", "GetAllAccByCsId")
+            </div>*@
+    }
+    <br />
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.AccountType, "Account Type", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AccountType, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AccountType, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.WithdrawAmount, "Withdrawal Amount", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.WithdrawAmount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.WithdrawAmount, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.CustomerId, "Customer ID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CustomerId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Withdraw" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+</body>

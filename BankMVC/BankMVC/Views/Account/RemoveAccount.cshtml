@@ -17,8 +17,11 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-
+        @Html.HiddenFor(model => model.WithdrawAmount)
+        @Html.HiddenFor(model => model.AccountType)
+        @Html.HiddenFor(model => model.ATMpin)
        
+
         <section class="glass">
             <div class="dashboards">
                 <form>

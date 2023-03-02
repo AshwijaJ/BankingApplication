@@ -85,5 +85,29 @@ namespace WebApi.Controllers
         }
 
 
+        [System.Web.Http.HttpPut]
+        public IHttpActionResult ATMpin(BankAccount acc)
+        {
+            int returnValue = 0;
+            returnValue = Da.pinATM(acc.AccountNumber,acc.ATMpin);
+            return Ok(returnValue);
+        }
+
+        [System.Web.Http.HttpPost]
+        public IHttpActionResult TransferAmount(Transfer AccTransfer)
+        {
+            int returnValue = 0;
+            returnValue = Da.AmountTransfer(AccTransfer);
+            return Ok(returnValue);
+        }
+
+        [System.Web.Http.HttpPost]
+        public IHttpActionResult XmlCreation(List<BankCustomer> BankDetails)
+        {
+            bool retvalue = false;
+            retvalue = Da.CreateXml(BankDetails);
+            return Ok(retvalue);
+        }
+
     }
 }

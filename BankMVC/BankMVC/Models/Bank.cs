@@ -29,12 +29,11 @@ namespace BankMVC.Models
         public int AccountNumber { get; set; }
 
         [Required(ErrorMessage = "Enter correct account balance")]
-        [Range(1, 100000)]
+       
         public long AccountBalance { get; set; }
       
         public string AccountType { get; set; }
-        //public DateTime TransactionTime { get; set; }
-        [Range(minimum:1,maximum:10000)]
+        
         public long WithdrawAmount { get; set; }
         [RegularExpression(@"^(\d{4})$", ErrorMessage = "Pin should be of 4 digits")]
         public int ATMpin { get; set; }
@@ -61,8 +60,7 @@ namespace BankMVC.Models
         [Key]
         public int TransactionId { get; set; }
         public int ToAccountNumber { get; set; }
-        public DateTime TransactionTime { get; set; }
-
+       
         public long amount { get; set; }
 
         [ForeignKey("Acc")]

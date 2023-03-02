@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Vereyon.Web;
 
 namespace BankMVC.Controllers
 {
@@ -76,8 +77,6 @@ namespace BankMVC.Controllers
             return View(AccUpdate);
         }
 
-
-
         [HttpPost]
         //specifies the event to take place after the getting of the data 
         public ActionResult UpdateAccount(BankAccount ev)
@@ -139,5 +138,49 @@ namespace BankMVC.Controllers
             }
 
         }
+
+
+        [HttpGet]
+        public ActionResult GetATMpin(int id)
+        {
+            BankAccount AccUpdate = new BankAccount();
+            AccUpdate = ac.AccountUpdate(id);
+            AccUpdate.ATMpin = 0;
+            return View(AccUpdate);
+        }
+
+        [HttpPost]
+        public ActionResult GetATMpin(BankAccount AccBank)
+        {
+            int retvalue = 0;
+            retvalue = ac.ATMpindel(AccBank);
+            if(retvalue==1)
+            {
+            return RedirectToAction("WithdrawlGetAllAccByCstId", "Account", new { @id = AccBank.AccountNumber });
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Incorrect pin";
+                //FlashMessage.Equals("You have entered incorrect pin");
+                return RedirectToAction("GetATMpin");
+                //alertify.error("Entered Wrong pin");
+                //return RedirectToAction("GetATMpin", "Account", new AlertifyMessageModel { Message = "Lorem ipsum" });
+            }
+        }
+
+        [HttpGet]
+        public ActionResult TransferAmount()
+        {
+            Transfer ast = new Transfer();
+            return View(ast);
+        }
+        [HttpPost]
+        public ActionResult TransferAmount(Transfer AmountTransfer)
+        {
+            ac.Transaction(AmountTransfer);
+            return RedirectToAction("GetAccounts");
+        }
+
+
     }
 }
