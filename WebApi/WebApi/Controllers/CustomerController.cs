@@ -15,7 +15,6 @@ namespace WebApi.Controllers
         DataAccess Da = new DataAccess();
 
         List<BankCustomer> ListCustomer = new List<BankCustomer>();
-       
 
         [System.Web.Http.HttpGet]
         public IHttpActionResult GetAllCustomer()

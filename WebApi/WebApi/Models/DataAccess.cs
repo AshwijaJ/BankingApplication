@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace WebApi.Models
 {
@@ -362,26 +364,39 @@ namespace WebApi.Models
                 using (var ctx = new BankDbContext())
                 {
 
-                    XDocument XmlDoc = new XDocument(
-                         new XElement("Bank", from customer in CustDetails
-                                                          select new XElement("Customer", 
-                                                          new XAttribute("CustomerId", customer.CustomerId), 
-                                                          new XAttribute("CustomerName", customer.CustomerName), 
-                                                          new XAttribute("CustomerPhone", customer.CustomerPhone), 
-                                                          new XAttribute("CustomerAddress", customer.CustomerAddress)
-                                                            //from account in AccDetails
-                                                            //select new XElement("Account",
-                                                            // new XAttribute("AccountNumber", account.AccountNumber),
-                                                            //new XAttribute("AccountBalance", account.AccountBalance),
-                                                            //new XAttribute("AccountType", account.AccountType),
-                                                            //new XAttribute("WithdrawAmount", account.WithdrawAmount),
-                                                            // new XAttribute("ATMpin", account.ATMpin)
+                    //XDocument XmlDoc = new XDocument(
+                    //     new XElement("Bank", from customer in CustDetails
+                    //                                      select new XElement("Customer", 
+                    //                                      new XAttribute("CustomerId", customer.CustomerId), 
+                    //                                      new XAttribute("CustomerName", customer.CustomerName), 
+                    //                                      new XAttribute("CustomerPhone", customer.CustomerPhone), 
+                    //                                      new XAttribute("CustomerAddress", customer.CustomerAddress)
+                    //                                        //from account in AccDetails
+                    //                                        //select new XElement("Account",
+                    //                                        // new XAttribute("AccountNumber", account.AccountNumber),
+                    //                                        //new XAttribute("AccountBalance", account.AccountBalance),
+                    //                                        //new XAttribute("AccountType", account.AccountType),
+                    //                                        //new XAttribute("WithdrawAmount", account.WithdrawAmount),
+                    //                                        // new XAttribute("ATMpin", account.ATMpin)
 
 
-                          )));
-                    Console.WriteLine(XmlDoc);
-                    XmlDoc.Save(@"D:\NewRepo\bank.xml");
-                    
+                    //      )));
+                    //Console.WriteLine(XmlDoc);
+                    //XmlDoc.Save(@"D:\NewRepo\bank.xml");
+
+
+
+                    //this below code for using serialization of xml document using xdocument
+
+                    BankCustomer utility = new BankCustomer();
+                    //var customerlist = utility
+
+                    XmlSerializer serializer = new XmlSerializer(typeof(BankCustomer));
+                    using (TextWriter writer = new StreamWriter(@"D:\NewRepo\test.xml"))
+                    {
+                        serializer.Serialize(writer, utility);
+                    }
+
                 }
             }
             catch (Exception ex)
@@ -389,6 +404,6 @@ namespace WebApi.Models
                 throw ex;
             }
             return true;
-        }
+        }     
     }
 }
