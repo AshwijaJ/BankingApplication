@@ -119,7 +119,7 @@ namespace BankMVC.Controllers
             //list which is initialised to store the data 
             BankAccount AccountList = new BankAccount();
             AccountList = ac.AccountUpdate(id);
-            //all the data is viewed in the View using the cshtml and css file 
+            //all the data is viewed in the View using the cshtml and css file.
             return View(AccountList);
         }
 
@@ -138,6 +138,7 @@ namespace BankMVC.Controllers
             }
 
         }
+
 
         [HttpGet]
         public ActionResult GetATMpin(int id)
@@ -180,6 +181,6 @@ namespace BankMVC.Controllers
             return RedirectToAction("GetAccounts");
         }
 
-    }
 
+    }
 }

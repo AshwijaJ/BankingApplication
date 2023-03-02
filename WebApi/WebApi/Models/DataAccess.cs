@@ -295,6 +295,7 @@ namespace WebApi.Models
             return Accountlist;
         }
 
+
         public int pinATM(int acc, int id)
         {
             BankAccount AccBank = new BankAccount();
@@ -405,5 +406,6 @@ namespace WebApi.Models
             }
             return true;
         }     
+
     }
 }

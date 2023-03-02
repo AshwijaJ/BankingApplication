@@ -84,6 +84,7 @@ namespace WebApi.Controllers
             return Ok(retValue);
         }
 
+
         [System.Web.Http.HttpPut]
         public IHttpActionResult ATMpin(BankAccount acc)
         {
@@ -107,5 +108,6 @@ namespace WebApi.Controllers
             retvalue = Da.CreateXml(BankDetails);
             return Ok(retvalue);
         }
+
     }
 }
